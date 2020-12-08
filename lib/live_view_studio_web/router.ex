@@ -17,7 +17,9 @@ defmodule LiveViewStudioWeb.Router do
   scope "/", LiveViewStudioWeb do
     pipe_through :browser
 
-    live "/", PageLive
+    live "/", PageLive #auto-gen'd
+    live "/light", LightLive
+      #liveview process
   end
 
   # Other scopes may use custom stacks.
