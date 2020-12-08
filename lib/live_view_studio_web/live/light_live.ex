@@ -11,7 +11,12 @@ defmodule LiveViewStudioWeb.LightLive do
   def render(assigns) do #a-liveview
     ~L"""
     <h1>screen brightness</h1>
-    <%= @brightness %>
+    <div id='light'>
+      <div class='meter'>
+        <span style="width: <%= @brightness %>"><%= @brightness %>%</span>
+      </div>
+    </div>
     """
+      # c s s pre included
   end
 end
