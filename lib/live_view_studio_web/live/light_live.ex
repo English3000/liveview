@@ -1,3 +1,4 @@
+# NOTE watched 4. upto 12:43
 defmodule LiveViewStudioWeb.LightLive do
   use LiveViewStudioWeb, :live_view #an-elixir process
 
@@ -11,7 +12,9 @@ defmodule LiveViewStudioWeb.LightLive do
     ~L"""
     <h1>available energy in-use</h1>
     <div id="light">
-      <div class="meter"> <!-- pre included c s s animations for-change in-@brightness -->
+      <div class="meter"> <!-- pre included c s s animations for-change in-@brightness
+                                 re @apply mixin https://pawelgrzybek.com/css-mixins-with-apply-rule/#syntax
+                                 also https://tailwindcss.com/docs/max-width -->
         <span style="width: <%= @brightness %>%"><%= @brightness %>%</span>
       </div>
 
@@ -22,9 +25,9 @@ defmodule LiveViewStudioWeb.LightLive do
       <button phx-click="on"><img src='images/light-on.svg'/></button>
     </div>
     """
-      # c s s pre included
   end
 
+  # click events using phx-click &event names
   def handle_event("off", _metadata, socket), do:
     { :noreply, assign(socket, :brightness, 0) }
       #saving re mounts live view
@@ -43,4 +46,5 @@ defmodule LiveViewStudioWeb.LightLive do
     { :noreply, assign(socket, :brightness, 100) }
   end
       # will- re -render phx sends only changes to-state to-client (kinda like-a-hook)
+      #   dynamic values indexed
 end
